@@ -19,6 +19,10 @@ body {
   min-height: 100vh;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* ---------------------------------- */
 /* ----------- Flex classes --------- */
 /* ---------------------------------- */
@@ -39,5 +43,21 @@ body {
   justify-content: flex-end;
 }
 
-/* ---------------------------------- */
-/* ---------------------------------- */
+/* ------------------------------------------------- */
+/* ------------------- Other classes --------------- */
+/* ------------------------------------------------- */
+
+.container {
+  /* container has class .flex_center */
+  flex-direction: column;
+}
+
+.buttons {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 15px 30px;
+  cursor: pointer;
+}
+.buttons:hover {
+  opacity: .7;
+}
