@@ -76,24 +76,57 @@ export function Login() {
 }
 
 export function SignUp() {
+  const [newUserName, setNewUserName] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [registrationError, setRegistrationError] = useState(null);
+
+  const handleSignUpSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ newUserName, newPassword }),
+      });
+
+      if (response.ok) {
+      } else {
+        setRegistrationError("Rejestracja nie powiodła się.");
+      }
+    } catch (error) {
+      console.error(error);
+      setRegistrationError("Wystąpił błąd podczas rejestracji.");
+    }
+  };
+
   return (
     <div className="container flex_center">
       <h1>Rejestracja</h1>
-      <form className="forms_login_signup flex_center" id="login_form">
-        <label for="user_name-signup">Nazwa Użytkownika: </label>
-        <input 
-        type="text" 
-        id="user_name-signup" />
-        <label for="password-signup">Hasło: </label>
-        <input 
-        type="password" 
-        id="password-signup" />
-        <input value="Zarejestruj sie" type="submit" id="submit-signup" className="submit_button"  />
+      <form className="forms_login_signup flex_center" onSubmit={handleSignUpSubmit}>
+        <label htmlFor="user_name-signup">Nazwa Użytkownika:</label>
+        <input
+          type="text"
+          id="user_name-signup"
+          value={newUserName}
+          onChange={(e) => setNewUserName(e.target.value)}
+        />
+        <label htmlFor="password-signup">Hasło:</label>
+        <input
+          type="password"
+          id="password-signup"
+          value={newPassword}
+          onChange={(e) => setNewPassword(e.target.value)}
+        />
+        <input type="submit" value="Zarejestruj się" className="submit_button" />
       </form>
-      <Link to="/login"><button id="button-go-login" className="button_go">Masz już konto? <strong>Zaloguj się</strong></button></Link>
+      {registrationError && <p>{registrationError}</p>}
+      <Link to="/login"><button className="button_go">Masz już konto? <strong>Zaloguj się</strong></button></Link>
       <Link to="/">Powrót na stronę główną</Link>
     </div>
-    )
+  );
 }
 
 export function StartGame() {
