@@ -1,0 +1,43 @@
+.forms_login_signup {
+  /* Both forms have .flex_center class */
+  flex-direction: column;
+  width: 100%;
+}
+.forms_login_signup label {
+  font-size: 20px;
+}
+.forms_login_signup input[type="text"],
+.forms_login_signup input[type="password"] {
+  padding: 5px;
+  margin: 5px;
+  width: 250px;
+  border: none;
+  outline: none;
+  border-radius: 15px
+}
+
+.submit_button {
+  padding: 10px;
+  width: 140px;
+  margin: 20px 0;
+  background-color: var(--background-color-buttons);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 30px
+}
+
+.button_go {
+  cursor: pointer;
+  outline: none;
+  padding: 7px;
+  font-size: 12px;
+  border-radius: 15px;
+}
+
+#money {
+  position: absolute;
+  bottom: 0;
+  margin: 20px;
+  padding: 20px;
+}

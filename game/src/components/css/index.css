@@ -5,7 +5,7 @@
   --padding: 10px;
   --background-color-body: linear-gradient(120deg, rgb(82, 97, 252), rgb(30, 83, 198));
   --background-color-container: #000;
-  --background-color-button: #000;
+  --background-color-buttons: #cdcdcd;
 }
 * {
   padding: 0;
@@ -20,7 +20,13 @@ body {
 }
 
 a {
+  margin: 10px;
+  color: var(--black);
   text-decoration: none;
+}
+a:hover {
+  color: var(--black);
+  opacity: .7;
 }
 
 /* ---------------------------------- */
@@ -48,8 +54,15 @@ a {
 /* ------------------------------------------------- */
 
 .container {
-  /* container has class .flex_center */
+  /* All containers has class .flex_center */
   flex-direction: column;
+  min-width: 100%;
+  min-height: 70vh;
+}
+
+h1 {
+  font-size: 30px;
+  margin: 0 10px 20px 10px;
 }
 
 .buttons {
@@ -57,6 +70,8 @@ a {
   margin: 5px;
   border-radius: 15px 30px;
   cursor: pointer;
+  background-color: var(--background-color-buttons);
+  box-shadow: 1px 1px 1px var(--black);
 }
 .buttons:hover {
   opacity: .7;
